@@ -12,10 +12,10 @@ const messages = require('./messages');
 
 const bot = new Telegraf(BOT_TOKEN);
 bot.start(ctx => ctx.reply(messages.start, Extra.HTML()));
-bot.on('message', ctx => ctx.reply(messages.start, Extra.HTML()));
 bot.command('list', ctx => ctx.reply(messages.list, Extra.HTML()));
 bot.command('faq', ctx => ctx.reply(messages.faq, Extra.HTML()))
 bot.command('informatica', ctx => ctx.reply(messages.informatica, Extra.HTML()));
+bot.on('text', ctx => ctx.reply(messages.start, Extra.HTML()));
 
 if (NODE_ENV === 'production') {
   bot.telegram.setWebhook(

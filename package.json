@@ -1,0 +1,16 @@
+{
+  "name": "UnipiRootBotNodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Andrea Giove",
+  "license": "GNU GPLv3",
+  "dependencies": {
+    "node-emoji": "^1.10.0",
+    "telegraf": "^3.38.0"
+  }
+}

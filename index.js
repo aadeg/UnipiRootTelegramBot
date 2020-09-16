@@ -8,8 +8,7 @@ const {
   REGION
 } = process.env;
 
-const messages = require('./messages')
-console.log(messages)
+const messages = require('./messages');
 
 const bot = new Telegraf(BOT_TOKEN);
 bot.start(ctx => ctx.reply(messages.start, Extra.HTML()));

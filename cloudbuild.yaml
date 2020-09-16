@@ -1,0 +1,8 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['functions',
+         'deploy', 'botHook',
+         '--trigger-http',
+         '--runtime', 'nodejs10',
+         '--region', 'europe-west3']
+  dir: '.'

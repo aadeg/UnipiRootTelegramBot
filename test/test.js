@@ -54,4 +54,15 @@ describe('Telegram bot test', () => {
       await testCommand(command, expectedMessage);
     });
   });
+
+  it('non command message', async () => {
+    const res = await client.sendMessage(client.makeMessage('Lorem ipsum'));
+    assert.equal(res.ok, true);
+
+    const updates = await client.getUpdates();
+    assert.equal(updates.ok, true);
+    assert.equal(updates.result.length, 1);
+    const { message } = updates.result[0];
+    assert.equal(message.text, messages.start);
+  });
 })

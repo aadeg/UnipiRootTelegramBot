@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "Andrea Giove",
@@ -12,5 +12,9 @@
   "dependencies": {
     "node-emoji": "^1.10.0",
     "telegraf": "^3.38.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3",
+    "telegram-test-api": "^2.4.4"
   }
 }

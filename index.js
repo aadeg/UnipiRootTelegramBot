@@ -1,29 +1,17 @@
-const Telegraf = require('telegraf');
-const Extra = require('telegraf/extra');
+const Bot = require('./src/bot');
 
 const {
   BOT_TOKEN,
   NODE_ENV,
   PROJECT_ID,
-  REGION
+  REGION,
+  FUNCTION_TARGET
 } = process.env;
 
-const messages = require('./messages');
-
-const bot = new Telegraf(BOT_TOKEN);
-bot.start(ctx => ctx.reply(messages.start, Extra.HTML()));
-bot.command('list', ctx => ctx.reply(messages.list, Extra.HTML()));
-bot.command('faq', ctx => ctx.reply(messages.faq, Extra.HTML()))
-bot.command('informatica', ctx => ctx.reply(messages.informatica, Extra.HTML()));
-bot.on('text', ctx => ctx.reply(messages.start, Extra.HTML()));
-
+const bot = new Bot(BOT_TOKEN);
 if (NODE_ENV === 'production') {
-  bot.telegram.setWebhook(
-    `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${process.env.FUNCTION_TARGET}`,
-  );
-  exports.botHook = (req, res) => {
-    bot.handleUpdate(req.body, res);
-  };
+  const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
+  exports.botHook = bot.startWebook(url);
 } else {
   bot.launch();
 }

@@ -9,6 +9,6 @@ steps:
   args: ['functions',
          'deploy', 'botHook',
          '--trigger-http',
-         '--runtime', 'nodejs10',
+         '--runtime', 'nodejs12',
          '--region', 'europe-west3']
   dir: '.'

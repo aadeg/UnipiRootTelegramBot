@@ -1,6 +1,7 @@
 const Telegraf = require('telegraf');
 const Extra = require('telegraf/extra');
 const messages = require('./messages');
+const events = require('events');
 
 const {
   BOT_TOKEN,
@@ -9,9 +10,19 @@ const {
   REGION
 } = process.env;
 
-class Bot {
+class Bot extends events.EventEmitter {
+
   constructor(token = process.env.BOT_TOKEN, options = {}) {
+    super();
     this.bot = new Telegraf(token, options);
+
+    this.bot.use(async (ctx, next) => {
+      await next();
+      const { update } = ctx;
+      if (update.message) {
+        this.emit("message_received", update.message);
+      }
+    });
 
     this.bot.start(ctx => ctx.reply(messages.start, Extra.HTML()));
     this.bot.command(

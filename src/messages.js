@@ -57,6 +57,7 @@ const informatica = emojify(`
 <b>Magistrali</b>
 <a href="https://t.me/joinchat/BK0BTRGED9l1HKoXRLWfjw">Computer Engineer</a>
 <a href="https://t.me/joinchat/A6S5hhOKF64s62zf2kJIxQ">AIDE</a>
+<a href="https://t.me/joinchat/D0ZgAxjCooSachHyMU9mlg">Cybersecurity</a>
 
 <i>Vuoi aggiungere un gruppo alla lista?</i> <a href="tg://user?id=70021520">Scrivimi</a>
 `);

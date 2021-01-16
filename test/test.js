@@ -47,6 +47,7 @@ describe('Telegram bot test', () => {
     assert.strictEqual(updates.result.length, 1);
     const { message } = updates.result[0];
     assert.strictEqual(message.text, expectedMessage);
+    assert.strictEqual(message.parse_mode, "HTML");
   }
   
   testsData.forEach(({command, expectedMessage}) => {
@@ -63,6 +64,6 @@ describe('Telegram bot test', () => {
     assert.strictEqual(updates.ok, true);
     assert.strictEqual(updates.result.length, 1);
     const { message } = updates.result[0];
-    assert.equal(message.text, messages.start);
+    assert.strictEqual(message.text, messages.start);
   });
 })

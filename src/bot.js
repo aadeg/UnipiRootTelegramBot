@@ -1,5 +1,4 @@
 const Telegraf = require('telegraf');
-const Extra = require('telegraf/extra');
 const messages = require('./messages');
 const events = require('events');
 
@@ -14,7 +13,7 @@ class Bot extends events.EventEmitter {
 
   constructor(token = process.env.BOT_TOKEN, options = {}) {
     super();
-    this.bot = new Telegraf(token, options);
+    this.bot = new Telegraf.Telegraf(token, options);
 
     this.bot.use(async (ctx, next) => {
       await next();
@@ -24,22 +23,22 @@ class Bot extends events.EventEmitter {
       }
     });
 
-    this.bot.start(ctx => ctx.reply(messages.start, Extra.HTML()));
+    this.bot.start(ctx => ctx.reply(messages.start, {parse_mode: "HTML"}));
     this.bot.command(
       'list',
-      ctx => ctx.reply(messages.list, Extra.HTML())
+      ctx => ctx.reply(messages.list, {parse_mode: "HTML"})
     );
     this.bot.command(
       'faq',
-      ctx => ctx.reply(messages.faq, Extra.HTML())
+      ctx => ctx.reply(messages.faq, {parse_mode: "HTML"})
     );
     this.bot.command(
       'informatica',
-      ctx => ctx.reply(messages.informatica, Extra.HTML())
+      ctx => ctx.reply(messages.informatica, {parse_mode: "HTML"})
     );
     this.bot.on(
       'text',
-      ctx => ctx.reply(messages.start, Extra.HTML())
+      ctx => ctx.reply(messages.start, {parse_mode: "HTML"})
     );
   }
 

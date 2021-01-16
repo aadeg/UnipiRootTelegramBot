@@ -40,13 +40,13 @@ describe('Telegram bot test', () => {
   async function testCommand(command, expectedMessage) {
     const commandMsg = client.makeCommand(command);
     const res = await client.sendCommand(commandMsg);
-    assert.equal(res.ok, true)
+    assert.strictEqual(res.ok, true)
 
     const updates = await client.getUpdates();
-    assert.equal(updates.ok, true);
-    assert.equal(updates.result.length, 1);
+    assert.strictEqual(updates.ok, true);
+    assert.strictEqual(updates.result.length, 1);
     const { message } = updates.result[0];
-    assert.equal(message.text, expectedMessage);
+    assert.strictEqual(message.text, expectedMessage);
   }
   
   testsData.forEach(({command, expectedMessage}) => {
@@ -57,11 +57,11 @@ describe('Telegram bot test', () => {
 
   it('non command message', async () => {
     const res = await client.sendMessage(client.makeMessage('Lorem ipsum'));
-    assert.equal(res.ok, true);
+    assert.strictEqual(res.ok, true);
 
     const updates = await client.getUpdates();
-    assert.equal(updates.ok, true);
-    assert.equal(updates.result.length, 1);
+    assert.strictEqual(updates.ok, true);
+    assert.strictEqual(updates.result.length, 1);
     const { message } = updates.result[0];
     assert.equal(message.text, messages.start);
   });

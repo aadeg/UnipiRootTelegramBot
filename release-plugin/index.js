@@ -1,12 +1,12 @@
 const SemanticReleaseError = require('@semantic-release/error');
 const AggregateError = require('aggregate-error');
 
-function analyzeCommits(pluginConfig, context) {
+function verifyConditions(pluginConfig, context) {
   const { logger } = context;
-  logger.log("analyzeCommits");
-  throw new AggregateError(["errors"]);
+  logger.asd("test");
+  console.error("verifyConditions");
 }
 
 module.exports = {
-  analyzeCommits,
+  verifyConditions,
 };

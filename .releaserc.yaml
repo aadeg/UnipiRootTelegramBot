@@ -1,2 +1,4 @@
 plugins:
-  - "./src/release-plugin"
+ - "./release-plugin"
+release: 
+  branches: ["semantic-release"]

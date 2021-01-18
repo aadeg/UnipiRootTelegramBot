@@ -1,12 +1,28 @@
-const SemanticReleaseError = require('@semantic-release/error');
-const AggregateError = require('aggregate-error');
+const { extractMessages, sendMessages, getUsers } = require('./utils');
 
-function verifyConditions(pluginConfig, context) {
-  const { logger } = context;
-  logger.asd("test");
-  console.error("verifyConditions");
+let messages = [];
+const userId = "70021520";
+
+async function analyzeCommits(pluginConfig, context) {
+  const { logger, commits } = context;
+  messages = extractMessages(commits);
+
+  logger.log(`Found ${messages.length} Telegram message`);
+  console.log(messages);
+
+  if (messages.length > 0) {
+    const users = await getUsers();
+    console.log(users);
+    sendMessages(messages, [userId]);
+  }
 }
 
-module.exports = {
-  verifyConditions,
+function success(pluginConfig, context) {
+  console.log("success");
+  console.log(context);
+}
+
+module.exports = { 
+  analyzeCommits, 
+  success
 };

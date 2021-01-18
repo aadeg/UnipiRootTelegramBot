@@ -1,4 +1,0 @@
-plugins:
- - "./release-plugin"
-release: 
-  branches: ["semantic-release"]

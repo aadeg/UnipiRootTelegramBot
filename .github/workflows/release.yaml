@@ -5,7 +5,7 @@ on:
     branches:
       - master
 
-jobs: 
+jobs:
   release:
     runs-on: ubuntu-18.04
     steps:
@@ -29,4 +29,3 @@ jobs:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           TELEGRAM_USER_ID: ${{ secrets.TELEGRAM_USER_ID }}
         run: npx semantic-release
-          

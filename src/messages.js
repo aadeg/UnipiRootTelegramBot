@@ -32,7 +32,7 @@ const informatica = emojify(`
 <a href="https://t.me/joinchat/Hcht5xDIHU-kQrGmR-L21A">:two_hearts: Analisi 2</a>
 <a href="https://t.me/joinchat/F-kdak12Fr8qHp5QiU7EHg">:floppy_disk: Basi di dati</a> (<a href="https://t.me/joinchat/ALDXWBVYpL2l84JHdnXoOw">progetto 2019</a>)
 <a href="https://t.me/joinchat/A0wv9EhCN2CjcIZebsS1RQ">:apple: Fisica generale</a>
-<a href="https://t.me/joinchat/FfSxCEmzOuSrJsooy5x6TQ">:pencil2: Algebra</a>
+:pencil2: Algebra (non disponibile)
 <a href="https://t.me/fondamenti_di_programmazione">:computer: Fondamenti di programmazione</a>
 
 <b>Anno 1</b>

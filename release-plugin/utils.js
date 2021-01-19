@@ -20,7 +20,6 @@ function extractMessages(commits) {
     const { body } = commit;
     const index = body.indexOf(header);
     if (index != -1) {
-      console.log(commit);
       const startIndex = index + header.length;
       let endIndex = body.indexOf('\n\n');
       endIndex = endIndex != -1 ? endIndex : body.length;

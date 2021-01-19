@@ -12,7 +12,7 @@ async function analyzeCommits(pluginConfig, context) {
 
 async function success(pluginConfig, context) {
   if (messages.length > 0) {
-    const users = await getUsers();
+    let users = await getUsers();
     users = [userId];
     logger.log(`Sending Telegram message to ${users.length} users`);
     sendMessages(messages);

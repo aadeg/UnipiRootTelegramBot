@@ -11,6 +11,8 @@ async function analyzeCommits(pluginConfig, context) {
 }
 
 async function success(pluginConfig, context) {
+  const { logger } = context;
+
   if (messages.length > 0) {
     let users = await getUsers();
     users = [userId];

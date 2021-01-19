@@ -47,7 +47,7 @@ const informatica = emojify(`
 
 <b>Anno 2</b>
 <a href="https://t.me/joinchat/AAAAAEHdvxGvPYyfEWYopQ">:radio: Comunicazioni numeriche</a>
-<a href="https://t.me/joinchat/AAAAAEP1KLt08zn-graaaw">:electric_plug: Elettronica digitale</a>
+:electric_plug: Elettronica digitale (non disponibile)
 :love_letter: Progettazioni di reti (non disponibile)
 <a href="https://t.me/joinchat/DP4y8g4TrvNtOnLXbSPgXw">:coffee: Programmazione</a>
 <a href="https://t.me/joinchat/BrkrO0Jdg2BQcqPEeeNSPw">:package: Reti informatiche</a>

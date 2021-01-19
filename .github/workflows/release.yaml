@@ -28,5 +28,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_USER_ID: ${{ secrets.TELEGRAM_USER_ID }}
         run: npx semantic-release
           

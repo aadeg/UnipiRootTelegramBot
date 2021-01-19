@@ -3,5 +3,5 @@
     "@semantic-release/commit-analyzer",
     "./release-plugin"
   ],
-  "branches" : [ "master", "sem-rel" ]
+  "branches" : [ "master" ]
 }

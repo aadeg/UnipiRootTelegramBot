@@ -23,23 +23,27 @@ class Bot extends events.EventEmitter {
       }
     });
 
-    this.bot.start(ctx => ctx.reply(messages.start, {parse_mode: "HTML"}));
+    const extra = {
+      parse_mode: "HTML",
+      disable_web_page_preview: true
+    };
+
+    this.bot.start(ctx => ctx.reply(messages.start, extra));
     this.bot.command(
       'list',
-      ctx => ctx.reply(messages.list, 
-                       {parse_mode: "HTML", disable_web_page_preview: true})
+      ctx => ctx.reply(messages.list, extra)
     );
     this.bot.command(
       'faq',
-      ctx => ctx.reply(messages.faq, {parse_mode: "HTML"})
+      ctx => ctx.reply(messages.faq, extra)
     );
     this.bot.command(
       'informatica',
-      ctx => ctx.reply(messages.informatica, {parse_mode: "HTML"})
+      ctx => ctx.reply(messages.informatica, extra)
     );
     this.bot.on(
       'text',
-      ctx => ctx.reply(messages.start, {parse_mode: "HTML"})
+      ctx => ctx.reply(messages.start, extra)
     );
   }
 

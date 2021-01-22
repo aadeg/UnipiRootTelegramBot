@@ -19,3 +19,10 @@ jobs:
       - run: npm ci
       - run: npm run coverage
       - uses: codecov/codecov-action@v1
+      - name: Deploy
+        uses: google-github-actions/deploy-cloud-functions@main
+        with:
+          name: botHook
+          runtime: nodejs12
+          region: europe-west3
+          credentials: ${{ secrets.GCP_SA_KEY }}

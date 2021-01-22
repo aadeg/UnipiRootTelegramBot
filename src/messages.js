@@ -37,7 +37,7 @@ const informatica = emojify(`
 
 <b>Anno 1</b>
 <a href="https://t.me/joinchat/DP4y8grSZBsk1YzDw-NCew">:video_game: Calcolatori elettronici</a>
-:clipboard: Calcolo Numerico (non disponibile)
+<a href="https://t.me/cnunipi">:clipboard: Calcolo Numerico</a>
 <a href="https://t.me/joinchat/AAAAAArREhurO44Fc--MGw">:moneybag: Economia</a>
 <a href="https://t.me/joinchat/AAAAAAuvvBo0m7aeqpAn6g">:zap: Elettrotecnica</a>
 <a href="https://t.me/joinchat/AAAAAAzFfSh5cwB9ldDIfw">:car: Fondamenti di automatica</a>

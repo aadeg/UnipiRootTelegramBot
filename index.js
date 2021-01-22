@@ -34,7 +34,7 @@ bot.on("message_received", async msg => {
   }
 });
 
-if (NODE_ENV === 'debug') 
+if (NODE_ENV === 'debug') {
   bot.launch();
 } else {
 const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;

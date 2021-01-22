@@ -26,7 +26,8 @@ class Bot extends events.EventEmitter {
     this.bot.start(ctx => ctx.reply(messages.start, {parse_mode: "HTML"}));
     this.bot.command(
       'list',
-      ctx => ctx.reply(messages.list, {parse_mode: "HTML"})
+      ctx => ctx.reply(messages.list, 
+                       {parse_mode: "HTML", disable_web_page_preview: true})
     );
     this.bot.command(
       'faq',

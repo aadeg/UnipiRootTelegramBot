@@ -19,7 +19,7 @@ jobs:
           node-version: 12.x
       - name: Install dependecies
         run: npm ci
-      - name: Running tests:
+      - name: Running tests
         run: npm test
       
       - name: Deploy

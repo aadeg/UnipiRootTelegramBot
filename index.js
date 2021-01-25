@@ -37,6 +37,6 @@ bot.on("message_received", async msg => {
 if (NODE_ENV === 'debug') {
   bot.launch();
 } else {
-const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
+  const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
   exports.botHook = bot.startWebook(url);
 }

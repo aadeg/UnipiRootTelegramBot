@@ -16,8 +16,10 @@ jobs:
           node-version: 12.x
       - name: Install dependecies
         run: npm ci
-      - name: Running tests
-        run: npm test
+      - name: Running Tests
+        run: npm run coverage
+      - name: Test coverage
+        uses: codecov/codecov-action@v1
     
   gcloud-deploy:
     runs-on: ubuntu-18.04
@@ -34,8 +36,6 @@ jobs:
           region: europe-west3
           credentials: ${{ secrets.GCP_SA_KEY }}
 
-      
-  
   release-new-version:
     runs-on: ubuntu-18.04
     environment: "Telegram Messaging"

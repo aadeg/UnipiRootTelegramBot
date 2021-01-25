@@ -6,11 +6,8 @@ on:
       - master
 
 jobs:
-  gcloud-deploy:
-    
+  testing:
     runs-on: ubuntu-18.04
-    environment: "Google Cloud Deploy"
-
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
@@ -21,13 +18,26 @@ jobs:
         run: npm ci
       - name: Running tests
         run: npm test
-      
+    
+  gcloud-deploy:
+    environment: "Google Cloud Deploy"
+    needs: testing
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
       - name: Deploy
         uses: google-github-actions/deploy-cloud-functions@main
         with:
           name: botHook
           runtime: nodejs12
           region: europe-west3
+
       
   
   release-new-version:
@@ -36,6 +46,7 @@ jobs:
     needs: gcloud-deploy
 
     steps:
+      - uses: actions/checkout@v2
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@master
         with:

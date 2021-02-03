@@ -33,8 +33,12 @@ jobs:
         with:
           name: botHook
           runtime: nodejs12
-          region: europe-west3
+          region: ${{ secrets.PROJECT_REGION }}
           credentials: ${{ secrets.GCP_SA_KEY }}
+          env_vars: 
+            BOT_TOKEN=${{ secrets.BOT_TOKEN }},
+            PROJECT_ID=${{ secrets.PROJECT_ID }},
+            REGION=${{ secrets.PROJECT_REGION }}
 
   release-new-version:
     runs-on: ubuntu-18.04

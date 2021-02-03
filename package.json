@@ -11,14 +11,14 @@
   "author": "Andrea Giove",
   "license": "GNU GPLv3",
   "dependencies": {
-    "@google-cloud/firestore": "4.8.1",
+    "@google-cloud/firestore": "4.9.1",
     "node-emoji": "^1.10.0",
-    "telegraf": "^4.0.1"
+    "telegraf": "^4.0.2"
   },
   "devDependencies": {
     "mocha": "^8.2.1",
     "nyc": "^15.1.0",
-    "semantic-release": "^17.3.6",
+    "semantic-release": "^17.3.7",
     "telegram-test-api": "^2.4.4"
   }
 }

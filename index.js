@@ -12,7 +12,7 @@ const {
 const COLLECTION_NAME = '/chats';
 
 const firestore = new Firestore({
-  projectId: PROJECT_ID,
+  projectId: GCP_PROJECT,
   timestampsinSnapshots: true
 });
 

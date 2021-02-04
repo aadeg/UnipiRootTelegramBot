@@ -4,8 +4,8 @@ const Firestore = require('@google-cloud/firestore');
 const {
   BOT_TOKEN,
   NODE_ENV,
-  PROJECT_ID,
-  REGION,
+  GCP_PROJECT,
+  FUNCTION_REGION,
   FUNCTION_TARGET
 } = process.env;
 
@@ -37,7 +37,7 @@ bot.on("message_received", async msg => {
 if (NODE_ENV === 'debug') {
   bot.launch();
 } else {
-  const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
+  const url = `https://${FUNCTION_REGION}-${GCP_PROJECT}.cloudfunctions.net/${FUNCTION_TARGET}`;
   console.log(`Webhook url: ${url}`);
   exports.botHook = bot.startWebook(url);
 }

@@ -4,7 +4,7 @@ const Firestore = require('@google-cloud/firestore');
 const {
   BOT_TOKEN,
   NODE_ENV,
-  PROJECT,
+  REGION,
   PROJECT_ID,
   FUNCTION_TARGET
 } = process.env;

@@ -4,15 +4,15 @@ const Firestore = require('@google-cloud/firestore');
 const {
   BOT_TOKEN,
   NODE_ENV,
-  GCP_PROJECT,
-  FUNCTION_REGION,
+  PROJECT,
+  PROJECT_ID,
   FUNCTION_TARGET
 } = process.env;
 
 const COLLECTION_NAME = '/chats';
 
 const firestore = new Firestore({
-  projectId: GCP_PROJECT,
+  projectId: PROJECT_ID,
   timestampsinSnapshots: true
 });
 
@@ -37,7 +37,7 @@ bot.on("message_received", async msg => {
 if (NODE_ENV === 'debug') {
   bot.launch();
 } else {
-  const url = `https://${FUNCTION_REGION}-${GCP_PROJECT}.cloudfunctions.net/${FUNCTION_TARGET}`;
+  const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
   console.log(`Webhook url: ${url}`);
   exports.botHook = bot.startWebook(url);
 }

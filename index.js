@@ -27,7 +27,8 @@ bot.on("message_received", async msg => {
       .set({
         id: chat.id,
         type: chat.type,
-        lastSeen: new Date()
+        lastSeen: new Date(),
+        notificationEnabled: true
       });
   } catch (err) {
     console.error(err);

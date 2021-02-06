@@ -22,7 +22,7 @@ async function success(pluginConfig, context) {
     users = [userId];
   }
   logger.log(`Sending Telegram message to ${users.length} users`);
-  const errorUsers = sendMessages(messages, users);
+  const errorUsers = await sendMessages(messages, users);
   console.log("errorUsers: ", errorUsers);
 }
 

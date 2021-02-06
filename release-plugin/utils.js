@@ -31,7 +31,7 @@ function extractMessages(commits) {
   return messages.reverse();
 }
 
-function sendMessages(messages, users) {
+async function sendMessages(messages, users) {
   const message = messages.join("\n\n");
   const bot = new Telegraf(process.env.BOT_TOKEN);
   

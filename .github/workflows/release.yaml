@@ -36,6 +36,12 @@ jobs:
           region: ${{ secrets.PROJECT_REGION }}
           credentials: ${{ secrets.GCP_SA_KEY }}
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
+      - name: Webhook setup
+        run: ./scripts/setup-webhook.sh
+        with:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          URL: ${{ steps.Deploy.outputs.url }}
+
 
   release-new-version:
     runs-on: ubuntu-18.04

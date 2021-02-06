@@ -14,14 +14,16 @@ async function analyzeCommits(pluginConfig, context) {
 async function success(pluginConfig, context) {
   const { logger } = context;
 
-  if (messages.length > 0) {
-    let users = await getUsers();
-    if (userId) {
-      users = [userId];
-    }
-    logger.log(`Sending Telegram message to ${users.length} users`);
-    sendMessages(messages, users);
+  if (messages.length == 0)
+    return;
+
+  let users = await getUsers();
+  if (userId) {
+    users = [userId];
   }
+  logger.log(`Sending Telegram message to ${users.length} users`);
+  const errorUsers = sendMessages(messages, users);
+  console.log("errorUsers: ", errorUsers);
 }
 
 module.exports = { 

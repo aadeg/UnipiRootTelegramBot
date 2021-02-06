@@ -35,14 +35,22 @@ function sendMessages(messages, users) {
   const message = messages.join("\n\n");
   const bot = new Telegraf(process.env.BOT_TOKEN);
   
+  let errorUsers = [];
   for (const userId of users) {
-    bot.telegram.sendMessage(userId, message);
+    try {
+      await bot.telegram.sendMessage(userId, message);
+    } catch (err) {
+      errorUsers.push(userId);
+    }
   }
   
+  return errorUsers;
 }
 
 async function getUsers() {
-  const snapshot = await firestore.collection(COLLECTION_NAME).get();
+  const snapshot = await firestore.collection(COLLECTION_NAME)
+    .where("notificationEnabled", "==", true)
+    .get();
   const users = snapshot.docs.map(d => d.data().id);
   return users;
 }

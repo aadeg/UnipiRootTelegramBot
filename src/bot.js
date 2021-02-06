@@ -54,6 +54,10 @@ class Bot extends events.EventEmitter {
     };
   }
 
+  webhookCallback(url) {
+    return this.bot.webhookCallback(url);
+  }
+
   startPolling() {
     this.bot.startPolling();
   }

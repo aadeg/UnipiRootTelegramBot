@@ -47,15 +47,6 @@ class Bot extends events.EventEmitter {
     );
   }
 
-  /*
-  startWebook(webhookUrl) {
-    this.bot.telegram.setWebhook(webhookUrl);
-    return (req, res) => {
-      this.bot.handleUpdate(req.body, res);
-    };
-  }
-  */
-
   webhookCallback() {
     return (req, res) => {
       this.bot.handleUpdate(req.body, res);

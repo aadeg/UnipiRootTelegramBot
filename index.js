@@ -41,5 +41,5 @@ if (NODE_ENV === 'debug') {
   // const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
   // const url = `/${FUNCTION_TARGET}`;
   // console.log(`Webhook url: ${url}`);
-  exports.botHook = bot.webhookCallback();
+  exports.botHook = bot.webhookCallback('/');
 }

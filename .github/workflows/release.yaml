@@ -40,7 +40,7 @@ jobs:
         run: ./scripts/setup-webhook.sh
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          URL: ${{ steps.Deploy.outputs.url }}
+          URL: ${{ steps.deploy.outputs.url }}
 
 
   release-new-version:

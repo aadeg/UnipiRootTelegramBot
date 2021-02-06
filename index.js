@@ -38,7 +38,8 @@ bot.on("message_received", async msg => {
 if (NODE_ENV === 'debug') {
   bot.launch();
 } else {
-  const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
+  // const url = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_TARGET}`;
+  const url = `/${FUNCTION_TARGET}`;
   console.log(`Webhook url: ${url}`);
   exports.botHook = bot.webhookCallback(url);
 }

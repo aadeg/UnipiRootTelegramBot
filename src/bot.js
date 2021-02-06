@@ -47,15 +47,19 @@ class Bot extends events.EventEmitter {
     );
   }
 
+  /*
   startWebook(webhookUrl) {
     this.bot.telegram.setWebhook(webhookUrl);
     return (req, res) => {
       this.bot.handleUpdate(req.body, res);
     };
   }
+  */
 
-  webhookCallback(url) {
-    return this.bot.webhookCallback(url);
+  webhookCallback() {
+    return (req, res) => {
+      this.bot.handleUpdate(req.body, res);
+    };
   }
 
   startPolling() {

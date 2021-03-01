@@ -46,9 +46,9 @@ const informatica = emojify(`
 <a href="https://t.me/joinchat/CNsBexXjeejb0JYbOmHtsw">:mag: Ricerca operativa</a>
 
 <b>Anno 2</b>
-<a href="https://t.me/joinchat/AAAAAEHdvxGvPYyfEWYopQ">:radio: Comunicazioni numeriche</a>
+<a href="https://t.me/joinchat/Qd2_EWQ-DwGCCvlU">:radio: Comunicazioni numeriche</a>
 :electric_plug: Elettronica digitale (non disponibile)
-:love_letter: Progettazioni di reti (non disponibile)
+<a href="https://t.me/joinchat/TZIixPTvkuDYk0hc">:love_letter: Progettazione di reti</a>
 <a href="https://t.me/joinchat/DP4y8g4TrvNtOnLXbSPgXw">:coffee: Programmazione</a>
 <a href="https://t.me/joinchat/BrkrO0Jdg2BQcqPEeeNSPw">:package: Reti informatiche</a>
 <a href="https://t.me/joinchat/C6lolENUqEA944VwYoaZ2A">:vertical_traffic_light: Sistemi operativi</a>

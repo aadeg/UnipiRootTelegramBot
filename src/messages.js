@@ -8,6 +8,7 @@ const list = emojify(`
 Puoi consultare la lista del tuo corso di laura eseguendo il relativo comando:
 
 /informatica Ing. Informatica
+/aide AIDE
 
 <i>Vuoi aggiungere un corso di laurea alla lista?</i> <a href="tg://user?id=70021520">Scrivimi</a>
 `);
@@ -65,9 +66,27 @@ const informatica = emojify(`
 <i>Vuoi aggiungere un gruppo alla lista?</i> <a href="tg://user?id=70021520">Scrivimi</a>
 `);
 
+const aide = emojify(`
+<b>Year 1</b>
+<a href="https://t.me/UNIPI_data_mining">:pick: Data Mining</a>
+<a href="https://t.me/UNIPI_large_scale_databases">:books: Large Scale Databases</a>
+<a href="https://t.me/UNIPI_cloud_computing">:cloud: Cloud Computing</a>
+<a href="https://t.me/UNIPI_optimization_methods">:game_die: Opt Methods and Game Theory</a>
+<a href="https://t.me/UNIPI_business_and_project_mngmt">:money_mouth_face: Business and Project Management</a>
+
+<b>Year 2</b>
+<a href="https://t.me/UNIPI_process_mining">:construction_worker: Process Mining</a>
+<a href="https://t.me/UNIPI_multimedia_inf_retr_and_cv">:robot_face: Multimedia Information Retrieval and Computer Vision</a>
+<a href="https://t.me/UNIPI_comp_intell_and_deep_lrnin">:brain: Computational Intelligence and Deep Learning</a>
+<a href="https://t.me/joinchat/2-g7AnXa-WExNjZk">:genie: Symbolic and Evolutionary Artificial Intelligence</a>
+
+<i>Whishing to add a group in the list?</i> <a href="tg://user?id=70021520">Send me a PM</a>
+`);
+
 module.exports = {
   start,
   list,
   informatica,
+  aide,
   faq
 };

@@ -41,6 +41,10 @@ class Bot extends events.EventEmitter {
       'informatica',
       ctx => ctx.reply(messages.informatica, extra)
     );
+    this.bot.command(
+      'aide',
+      ctx => ctx.reply(messages.aide, extra)
+    );
     this.bot.on(
       'text',
       ctx => ctx.reply(messages.start, extra)

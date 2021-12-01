@@ -19,6 +19,6 @@
     "mocha": "^8.4.0",
     "nyc": "^15.1.0",
     "semantic-release": "^18.0.0",
-    "telegram-test-api": "^2.5.0"
+    "telegram-test-api": "^4.1.2"
   }
 }

@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-18.04
     environment: "Google Cloud Deploy"
     needs: testing
+    concurrency: gcloud-deployment
 
     steps:
       - uses: actions/checkout@v2
@@ -48,6 +49,7 @@ jobs:
     runs-on: ubuntu-18.04
     environment: "Telegram Messaging"
     needs: gcloud-deploy
+    concurrency: release
 
     steps:
       - uses: actions/checkout@v2

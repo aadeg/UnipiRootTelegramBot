@@ -73,6 +73,7 @@ const aide = emojify(`
 <a href="https://t.me/UNIPI_cloud_computing">:cloud: Cloud Computing</a>
 <a href="https://t.me/UNIPI_optimization_methods">:game_die: Opt Methods and Game Theory</a>
 <a href="https://t.me/UNIPI_business_and_project_mngmt">:money_mouth_face: Business and Project Management</a>
+<a href="https://t.me/+KM4Wu6hEQIViYTY0">:iphone: Mobile and Social Sensing Systems</a>
 
 <b>Year 2</b>
 <a href="https://t.me/UNIPI_process_mining">:construction_worker: Process Mining</a>

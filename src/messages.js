@@ -73,13 +73,22 @@ const aide = emojify(`
 <a href="https://t.me/UNIPI_cloud_computing">:cloud: Cloud Computing</a>
 <a href="https://t.me/UNIPI_optimization_methods">:game_die: Opt Methods and Game Theory</a>
 <a href="https://t.me/UNIPI_business_and_project_mngmt">:money_mouth_face: Business and Project Management</a>
-<a href="https://t.me/+KM4Wu6hEQIViYTY0">:iphone: Mobile and Social Sensing Systems</a>
 
 <b>Year 2</b>
 <a href="https://t.me/UNIPI_process_mining">:construction_worker: Process Mining</a>
 <a href="https://t.me/UNIPI_multimedia_inf_retr_and_cv">:robot_face: Multimedia Information Retrieval and Computer Vision</a>
 <a href="https://t.me/UNIPI_comp_intell_and_deep_lrnin">:brain: Computational Intelligence and Deep Learning</a>
 <a href="https://t.me/joinchat/2-g7AnXa-WExNjZk">:genie: Symbolic and Evolutionary Artificial Intelligence</a>
+
+<b>Telegram Groups Group A</b>
+<a href="https://t.me/+KM4Wu6hEQIViYTY0">:iphone: Mobile and Social Sensing Systems</a>
+
+<b>Students' Material Repo</b>
+:white_check_mark: :books: <a href="https://github.com/Ruggero1912/AIDE-unipi">Course repo</a>: notes to study on, links to students' public projects, collections of oral questions. 
+:star: - share your projects and / or notes
+:heavy_check_mark: - can contribute with Pull Requests
+:mega: - mantainers needed
+
 
 <i>Whishing to add a group in the list?</i> <a href="tg://user?id=70021520">Send me a PM</a>
 `);

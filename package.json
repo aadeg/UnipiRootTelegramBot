@@ -11,7 +11,7 @@
   "author": "Andrea Giove",
   "license": "GNU GPLv3",
   "dependencies": {
-    "@google-cloud/firestore": "5.0.2",
+    "@google-cloud/firestore": "6.0.0",
     "node-emoji": "^1.11.0",
     "telegraf": "^4.8.5"
   },

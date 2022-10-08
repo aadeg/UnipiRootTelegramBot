@@ -56,7 +56,7 @@ const informatica = emojify(`
 <a href="https://t.me/joinchat/CLsD7hdrCpwyk3_eDqQxrw">:triangular_ruler: Ingegneria del software</a>
 
 <b>Extra</b>
-<a href="https://t.me/joinchat/AnWsLRDWt_mF_4hSuJe1OA">:closed_lock_with_key: Crittografia</a>
+<a href="https://t.me/joinchat/lgdEFFWRnaw1ZmM8">:closed_lock_with_key: Crittografia</a>
 
 <b>Magistrali</b>
 <a href="https://t.me/joinchat/BK0BTRGED9l1HKoXRLWfjw">Computer Engineer</a>

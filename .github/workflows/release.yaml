@@ -22,23 +22,33 @@ jobs:
         uses: codecov/codecov-action@v1
     
   gcloud-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     environment: "Google Cloud Deploy"
     needs: testing
     concurrency: gcloud-deployment
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      - id: auth
+        name: Authentication
+        uses: google-github-actions/auth@v1
+        with:
+          credentials: ${{ secrets.GCP_SA_KEY }}
+      
       - id: deploy
         name: Deploy
-        uses: google-github-actions/deploy-cloud-functions@main
+        uses: google-github-actions/deploy-cloud-functions@v1
         with:
           name: botHook
-          runtime: nodejs12
+          runtime: nodejs16
           region: ${{ secrets.PROJECT_REGION }}
-          credentials: ${{ secrets.GCP_SA_KEY }}
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
-      - name: Webhook setup
+
+      - name: Setting up Telegram Webhook
         run: ./scripts/setup-webhook.sh
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}

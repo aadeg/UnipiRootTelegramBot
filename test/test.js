@@ -16,6 +16,7 @@ describe('Telegram bot test', () => {
     {command: "/faq", expectedMessage: messages.faq},
     {command: "/list", expectedMessage: messages.list},
     {command: "/informatica", expectedMessage: messages.informatica},
+    {command: "/aide", expectedMessage: messages.aide},
   ];
 
   let server;

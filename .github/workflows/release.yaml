@@ -7,13 +7,13 @@ on:
 
 jobs:
   testing:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16.x
       - name: Install dependecies
         run: npm ci
       - name: Running Tests
@@ -56,17 +56,17 @@ jobs:
 
 
   release-new-version:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     environment: "Telegram Messaging"
     needs: gcloud-deploy
     concurrency: release
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: Install dependecies
         run: npm ci
       - name: Set up Cloud SDK

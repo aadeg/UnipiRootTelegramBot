@@ -62,7 +62,7 @@ jobs:
     needs: gcloud-deploy
     concurrency: release
     permissions:
-      contents: 'read'
+      contents: 'write'
       id-token: 'write'
 
     steps:
@@ -79,7 +79,7 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll/providers/github-provider"
-          service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
+          service_account: "firebase-adminsdk-ecnw5@unipitelegrambot.iam.gserviceaccount.com"
           create_credentials_file: true
           export_environment_variables: true
 

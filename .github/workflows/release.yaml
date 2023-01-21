@@ -39,7 +39,6 @@ jobs:
         with:
           workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll/providers/github-provider"
           service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
-          # credentials_json: ${{ secrets.GCP_SA_KEY }}
       
       - id: deploy
         name: Deploy
@@ -62,6 +61,9 @@ jobs:
     environment: "Telegram Messaging"
     needs: gcloud-deploy
     concurrency: release
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
     steps:
       - uses: actions/checkout@v3
@@ -81,12 +83,6 @@ jobs:
           create_credentials_file: true
           export_environment_variables: true
 
-      # - name: Set up Cloud SDK
-      #   uses: google-github-actions/setup-gcloud@v0
-      #   with:
-      #     project_id: ${{ secrets.PROJECT_ID }}
-      #     service_account_key: ${{ secrets.GCP_SA_KEY }}
-      #     export_default_credentials: true
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

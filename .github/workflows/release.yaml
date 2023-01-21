@@ -37,7 +37,7 @@ jobs:
         name: Authentication
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll"
+          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll/providers/github-provider"
           service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
           # credentials_json: ${{ secrets.GCP_SA_KEY }}
       
@@ -76,7 +76,7 @@ jobs:
         name: Authentication
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll"
+          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll/providers/github-provider"
           service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
           create_credentials_file: true
           export_environment_variables: true

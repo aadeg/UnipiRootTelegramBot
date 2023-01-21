@@ -37,7 +37,9 @@ jobs:
         name: Authentication
         uses: google-github-actions/auth@v1
         with:
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll"
+          service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
+          # credentials_json: ${{ secrets.GCP_SA_KEY }}
       
       - id: deploy
         name: Deploy
@@ -69,12 +71,22 @@ jobs:
           node-version: 16.x
       - name: Install dependecies
         run: npm ci
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v0
+      
+      - id: auth
+        name: Authentication
+        uses: google-github-actions/auth@v1
         with:
-          project_id: ${{ secrets.PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll"
+          service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
+          create_credentials_file: true
+          export_environment_variables: true
+
+      # - name: Set up Cloud SDK
+      #   uses: google-github-actions/setup-gcloud@v0
+      #   with:
+      #     project_id: ${{ secrets.PROJECT_ID }}
+      #     service_account_key: ${{ secrets.GCP_SA_KEY }}
+      #     export_default_credentials: true
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

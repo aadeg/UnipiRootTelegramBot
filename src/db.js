@@ -54,10 +54,17 @@ class Db {
 
   async onMessageReceived(msg) {
     try {
-      this.updateChatsCollection(msg);
-      this.updateStatsCollection(msg);
+      await this.updateChatsCollection(msg);
+      await this.updateStatsCollection(msg);
     } catch (err){
-      console.error(err);
+      const logEntry = {
+        severity: 'ERROR',
+        type: err.name,
+        message: err.message,
+        stack: err.stack,
+        component: 'db'
+      }
+      console.error(JSON.stringify(logEntry));
     }
   } 
 }

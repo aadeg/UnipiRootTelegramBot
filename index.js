@@ -1,5 +1,5 @@
 const Bot = require('./src/bot');
-const Firestore = require('@google-cloud/firestore');
+const Db = require('./src/db');
 
 const {
   BOT_TOKEN,
@@ -9,30 +9,11 @@ const {
   FUNCTION_TARGET
 } = process.env;
 
-const COLLECTION_NAME = '/chats';
-
-const firestore = new Firestore({
-  projectId: PROJECT_ID,
-  timestampsinSnapshots: true
-});
-
 const bot = new Bot(BOT_TOKEN);
+const db = new Db(PROJECT_ID);
 
-bot.on("message_received", async msg => {
-  const { chat } = msg;
-
-  try {
-    await firestore.collection(COLLECTION_NAME)
-      .doc(chat.id.toString())
-      .set({
-        id: chat.id,
-        type: chat.type,
-        lastSeen: new Date(),
-        notificationEnabled: true
-      });
-  } catch (err) {
-    console.error(err);
-  }
+bot.on("message_received", async (msg) => {
+  await db.onMessageReceived(msg);
 });
 
 if (NODE_ENV === 'debug') {

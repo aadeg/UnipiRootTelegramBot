@@ -54,8 +54,6 @@ class Db {
     try {
       await this.updateChatsCollection(msg);
       await this.updateStatsCollection(msg);
-      errors.report("test report");
-      errors.report(new Error('My error message'));
     } catch (err){
       const logEntry = {
         severity: 'ERROR',

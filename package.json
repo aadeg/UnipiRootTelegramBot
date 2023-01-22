@@ -11,6 +11,7 @@
   "author": "Andrea Giove",
   "license": "GNU GPLv3",
   "dependencies": {
+    "@google-cloud/error-reporting": "^3.0.5",
     "@google-cloud/firestore": "6.4.2",
     "luxon": "^3.2.1",
     "node-emoji": "^1.11.0",

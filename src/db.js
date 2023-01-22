@@ -1,8 +1,10 @@
 const Firestore = require('@google-cloud/firestore');
+const { ErrorReporting } = require('@google-cloud/error-reporting')
 const { DateTime } = require('luxon')
 
 const CHATS_COLLECTION = '/chats';
 const STATS_COLLECTION = '/stats';
+const errors = new ErrorReporting();
 
 class Db {
   constructor(projectId = process.env.PROJECT_ID) {
@@ -52,6 +54,8 @@ class Db {
     try {
       await this.updateChatsCollection(msg);
       await this.updateStatsCollection(msg);
+      errors.report("test report");
+      errors.report(new Error('My error message'));
     } catch (err){
       const logEntry = {
         severity: 'ERROR',
@@ -61,6 +65,7 @@ class Db {
         component: 'db'
       }
       console.error(JSON.stringify(logEntry));
+      errors.report(err);
     }
   } 
 }

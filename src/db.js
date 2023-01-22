@@ -27,29 +27,25 @@ class Db {
   async updateStatsCollection(msg) {
     const { chat } = msg;
 
-    const statsDocRef = this.firestore.collection(STATS_COLLECTION)
+    const docRef = this.firestore.collection(STATS_COLLECTION)
       .doc(DateTime.now().toFormat('WWyyyy'));
-    const statsDoc = await statsDocRef.get();
-    if (!statsDoc.exists) {
-      await statsDocRef.create({
-        year: DateTime.now().year,
-        week: DateTime.now().weekNumber,
-        requests: 1,
-        uniqueUsers: 1,
-        usersList: [chat.id]
-      });
-    } else {
-      let { requests, usersList } = statsDoc.data();
-      if (usersList.find(el => el == chat.id) == undefined) {
-        usersList.push(chat.id);
-      }
 
-      await statsDocRef.update({
-        requests: requests + 1,
-        usersList: usersList,
-        uniqueUsers: usersList.length
-      });
-    }
+    await this.firestore.runTransaction(async (t) => {
+      const doc = await t.get(docRef);
+      if (!doc.exists) {
+        t.create(docRef, {
+          year: DateTime.now().year,
+          week: DateTime.now().weekNumber,
+          requests: 1,
+          uniqueUsers: [chat.id]
+        });
+      } else {
+        t.update(docRef, {
+          requests: Firestore.FieldValue.increment(1),
+          uniqueUsers: Firestore.FieldValue.arrayUnion(chat.id)
+        });
+      }
+    });
   }
 
   async onMessageReceived(msg) {

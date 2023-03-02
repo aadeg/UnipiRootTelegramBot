@@ -65,7 +65,15 @@ class Db {
       console.error(JSON.stringify(logEntry));
       errors.report(err);
     }
-  } 
+  }
+
+  async getNotifiableUsers() {
+    const snapshot = await this.firestore.collection(CHATS_COLLECTION)
+      .where("notificationEnabled", "==", true)
+      .get();
+    const users = snapshot.docs.map(d => d.data().id);
+    return users;
+  }
 }
 
 module.exports = Db;

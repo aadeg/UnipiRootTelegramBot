@@ -40,13 +40,26 @@ jobs:
           workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll/providers/github-provider"
           service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
       
-      - id: deploy
-        name: Deploy
+      - id: deploy-bot-hook
+        name: Deploy botHook
         uses: google-github-actions/deploy-cloud-functions@v1
         with:
           name: botHook
           runtime: nodejs16
           region: ${{ secrets.PROJECT_REGION }}
+          entry_point: botHook
+          env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
+      
+      - id: deploy-broadcast-message
+        name: Deploy broadcastMessage
+        uses: google-github-actions/deploy-cloud-functions@v1
+        with:
+          name: broadcastMessage
+          runtime: nodejs16
+          region: ${{ secrets.PROJECT_REGION }}
+          entry_point: broadcastMessage
+          event_trigger_type: providers/cloud.pubsub/eventTypes/topic.publish
+          event_trigger_resource: projects/${{ secrets.PROJECT_ID }}/topics/broadcastMessage
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
 
       - name: Setting up Telegram Webhook

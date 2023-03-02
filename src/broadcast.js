@@ -41,7 +41,7 @@ class Broadcast {
       const data = JSON.parse(buffer.toString());
       const { broadcastMessage, group } = data;
 
-      await this.broadcastMessage(broadcastMessage);
+      await this.broadcastMessage(broadcastMessage, group);
       callback();
     }
   }

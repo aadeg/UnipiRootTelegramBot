@@ -74,6 +74,14 @@ class Db {
     const users = snapshot.docs.map(d => d.data().id);
     return users;
   }
+
+  async getDevUsers() {
+    const snapshot = await this.firestore.collection(CHATS_COLLECTION)
+      .where("devUser", "==", true)
+      .get();
+    const users = snapshot.docs.map(d => d.data().id);
+    return users;
+  }
 }
 
 module.exports = Db;

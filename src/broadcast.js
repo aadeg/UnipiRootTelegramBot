@@ -23,12 +23,12 @@ class Broadcast {
   }
 
   functionCallback() {
-    return (eventData, context, callback) => {
-      console.log(eventData);
-      console.log(context);
+    return async (eventData, context, callback) => {
       const buffer = Buffer.from(eventData.data, 'base64');
-      const data = buffer.toString();
-      console.log(data);
+      const data = JSON.parse(buffer.toString());
+      const { broadcastMessage } = data;
+
+      await this.broadcastMessage(broadcastMessage);
       callback();
     }
   }

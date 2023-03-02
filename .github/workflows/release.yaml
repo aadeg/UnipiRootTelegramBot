@@ -60,6 +60,7 @@ jobs:
           entry_point: broadcastMessage
           event_trigger_type: providers/cloud.pubsub/eventTypes/topic.publish
           event_trigger_resource: projects/${{ secrets.PROJECT_ID }}/topics/broadcastMessage
+          event_trigger_retry: true
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
 
       - name: Setting up Telegram Webhook

@@ -9,7 +9,7 @@ class Broadcast {
 
   async broadcastMessage(message) {
     // const users = await this.db.getNotifiableUsers();
-    users = [
+    const users = [
       70021520
     ];
 

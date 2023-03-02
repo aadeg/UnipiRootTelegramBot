@@ -26,6 +26,9 @@ class Broadcast {
     return (eventData, context, callback) => {
       console.log(eventData);
       console.log(context);
+      const buffer = Buffer.from(eventData.data, 'base64');
+      const data = buffer.toString();
+      console.log(data);
       callback();
     }
   }

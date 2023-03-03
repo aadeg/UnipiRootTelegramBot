@@ -21,11 +21,11 @@ jobs:
       - name: Test coverage
         uses: codecov/codecov-action@v1
     
-  gcloud-deploy:
+  gcloud-deploy-bot-hook:
     runs-on: ubuntu-20.04
-    environment: "Google Cloud Deploy"
+    environment: "Google Cloud Deploy botHook"
     needs: testing
-    concurrency: gcloud-deployment
+    concurrency: gcloud-deployment-bot-hook
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -49,7 +49,32 @@ jobs:
           region: ${{ secrets.PROJECT_REGION }}
           entry_point: botHook
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
-      
+
+      - name: Setting up Telegram Webhook
+        run: ./scripts/setup-webhook.sh
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          URL: ${{ steps.deploy-bot-hook.outputs.url }}
+
+  gcloud-deploy-broadcast-message:
+    runs-on: ubuntu-20.04
+    environment: "Google Cloud Deploy broadcastMessage"
+    needs: testing
+    concurrency: gcloud-deployment-broadcastMessage
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - id: auth
+        name: Authentication
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: "projects/1040901604659/locations/global/workloadIdentityPools/github-production-poll/providers/github-provider"
+          service_account: "github-deployment@unipitelegrambot.iam.gserviceaccount.com"
+
       - id: deploy-broadcast-message
         name: Deploy broadcastMessage
         uses: google-github-actions/deploy-cloud-functions@v1
@@ -63,17 +88,12 @@ jobs:
           event_trigger_retry: true
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
 
-      - name: Setting up Telegram Webhook
-        run: ./scripts/setup-webhook.sh
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          URL: ${{ steps.deploy-bot-hook.outputs.url }}
-
-
   release-new-version:
     runs-on: ubuntu-20.04
     environment: "Telegram Messaging"
-    needs: gcloud-deploy
+    needs: 
+      - gcloud-deploy-bot-hook
+      - gcloud-deploy-broadcast-message
     concurrency: release
     permissions:
       contents: 'write'

@@ -16,14 +16,24 @@ class Db {
 
   async updateChatsCollection(msg) {
     const { chat } = msg;
-    await this.firestore.collection(CHATS_COLLECTION)
-      .doc(chat.id.toString())
-      .set({
-        id: chat.id,
-        type: chat.type,
-        lastSeen: new Date(),
-        notificationEnabled: true
-      });
+    const docRef = this.firestore.collection(CHATS_COLLECTION)
+      .doc(chat.id.toString());
+    
+    await this.firestore.runTransaction(async (t) => {
+      const doc = await t.get(docRef);
+      if (!doc.exists) {
+        t.create(docRef, {
+          id: chat.id,
+          type: chat.type,
+          lastSeen: new Date(),
+          notificationEnabled: true
+        });
+      } else {
+        t.update(docRef, {
+          lastSeen: new Date()
+        });
+      }
+    });
   }
 
   async updateStatsCollection(msg) {

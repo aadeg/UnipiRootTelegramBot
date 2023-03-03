@@ -93,10 +93,40 @@ const aide = emojify(`
 <i>Whishing to add a group in the list?</i> <a href="tg://user?id=70021520">Send me a PM</a>
 `);
 
+const computerEngineering = emojify(`
+<b>Year 1</b>
+<a href="https://t.me/UNIPI_large_scale_databases">:books: Large Scale Databases</a>
+<a href="https://t.me/UNIPI_cloud_computing">:cloud: Cloud Computing</a>
+<a href="https://t.me/Performance_evaluation_unipi">:gear: Performance Evaluation</a>
+<a href="https://t.me/Electronic_and_communication">:zap: Electronics and Communication Systems</a>
+<a href="https://t.me/Computer_architecture_unipi">:computer: Computer Architecture</a>
+<a href="https://t.me/Intelligence_systems">:deaf_woman: Intelligent System</a>
+<a href="https://t.me/Foundations_of_cybersecurity">:safety_vest: Foundations of Cybersecurity</a>
+<a href="https://t.me/formal_Methds_FMFSS">:helmet_with_white_cross: Formal Methods For Secure Systems</a>
+
+
+<b>Year 2</b>
+<a href="https://t.me/Distributed_systems_unipi">:keyboard: Distributed Systems and MIddleware Technologies</a>
+<a href="https://t.me/Software_systems_engineering">:three_button_mouse: Software Systems Engineering</a>
+
+<b>Group A</b>
+<a href="https://t.me/+KM4Wu6hEQIViYTY0">:iphone: Mobile and Social Sensing Systems</a>
+<a href="https://t.me/Advanced_network_architecture">:nerd_face: Advanced Network Architectures and Wireless Systems</a>
+<a href="https://t.me/iotUNiPi2023">:beetle: Internet of Things</a>
+
+<b>Extra</b>
+<a href="https://t.me/joinchat/C2zgqFiWJJAu3p-mDhkQ-w">Computer Engineer 2019/20</a>
+<a href="https://t.me/CEUnipi">Computer Engineer 2020/21</a>
+<a href="https://t.me/CEUnipi2021">Computer Engineer 2021/22</a>
+
+
+`);
+
 module.exports = {
   start,
   list,
   informatica,
   aide,
+  computerEngineering,
   faq
 };

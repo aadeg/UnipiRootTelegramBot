@@ -45,9 +45,13 @@ class Bot extends events.EventEmitter {
       'aide',
       ctx => ctx.reply(messages.aide, extra)
     );
+    this.bot.command(
+      'computer_eng',
+      ctx => ctx.reply(messages.computerEngineering, extra)
+    );
     this.bot.on(
       'text',
-      ctx => ctx.reply(messages.start, extra)
+      ctx => { console.log(ctx.update.message); return ctx.reply(messages.start, extra) }
     );
   }
 

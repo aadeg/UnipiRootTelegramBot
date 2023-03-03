@@ -23,7 +23,7 @@ jobs:
     
   gcloud-deploy-bot-hook:
     runs-on: ubuntu-20.04
-    environment: "Google Cloud Deploy botHook"
+    environment: "Google Cloud Deploy"
     needs: testing
     concurrency: gcloud-deployment-bot-hook
     permissions:
@@ -58,7 +58,7 @@ jobs:
 
   gcloud-deploy-broadcast-message:
     runs-on: ubuntu-20.04
-    environment: "Google Cloud Deploy broadcastMessage"
+    environment: "Google Cloud Deploy"
     needs: testing
     concurrency: gcloud-deployment-broadcastMessage
     permissions:

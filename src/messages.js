@@ -104,7 +104,6 @@ const computerEngineering = emojify(`
 <a href="https://t.me/Foundations_of_cybersecurity">:safety_vest: Foundations of Cybersecurity</a>
 <a href="https://t.me/formal_Methds_FMFSS">:helmet_with_white_cross: Formal Methods For Secure Systems</a>
 
-
 <b>Year 2</b>
 <a href="https://t.me/Distributed_systems_unipi">:keyboard: Distributed Systems and MIddleware Technologies</a>
 <a href="https://t.me/Software_systems_engineering">:three_button_mouse: Software Systems Engineering</a>

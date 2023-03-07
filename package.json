@@ -13,7 +13,7 @@
   "dependencies": {
     "@google-cloud/error-reporting": "^3.0.5",
     "@google-cloud/firestore": "6.4.3",
-    "@google-cloud/pubsub": "^3.3.0",
+    "@google-cloud/pubsub": "^3.4.0",
     "luxon": "^3.2.1",
     "node-emoji": "^1.11.0",
     "telegraf": "^4.11.2"

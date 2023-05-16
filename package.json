@@ -15,7 +15,7 @@
     "@google-cloud/firestore": "6.5.0",
     "@google-cloud/pubsub": "^3.5.2",
     "luxon": "^3.3.0",
-    "node-emoji": "^1.11.0",
+    "node-emoji": "^2.0.2",
     "telegraf": "^4.12.2"
   },
   "devDependencies": {

@@ -6,6 +6,9 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        version: [16.x, 18.x, 20.x]
     runs-on: ubuntu-20.04
 
     steps:
@@ -13,7 +16,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: ${{ matrix.version }}
       - run: npm ci
       - run: npm run coverage
       - uses: codecov/codecov-action@v1

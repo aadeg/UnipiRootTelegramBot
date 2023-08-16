@@ -7,13 +7,16 @@ on:
 
 jobs:
   testing:
+    strategy:
+      matrix:
+        version: [16.x, 18.x, 20.x]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: ${{ matrix.version }}
       - name: Install dependecies
         run: npm ci
       - name: Running Tests
@@ -45,7 +48,7 @@ jobs:
         uses: google-github-actions/deploy-cloud-functions@v1
         with:
           name: botHook
-          runtime: nodejs16
+          runtime: nodejs18
           region: ${{ secrets.PROJECT_REGION }}
           entry_point: botHook
           env_vars: BOT_TOKEN=${{ secrets.BOT_TOKEN }},REGION=${{ secrets.PROJECT_REGION }},PROJECT_ID=${{ secrets.PROJECT_ID }}
@@ -80,7 +83,7 @@ jobs:
         uses: google-github-actions/deploy-cloud-functions@v1
         with:
           name: broadcastMessage
-          runtime: nodejs16
+          runtime: nodejs18
           region: ${{ secrets.PROJECT_REGION }}
           entry_point: broadcastMessage
           event_trigger_type: providers/cloud.pubsub/eventTypes/topic.publish
@@ -104,7 +107,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Install dependecies
         run: npm ci
       

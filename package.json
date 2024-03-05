@@ -12,7 +12,7 @@
   "license": "GNU GPLv3",
   "dependencies": {
     "@google-cloud/error-reporting": "^3.0.5",
-    "@google-cloud/firestore": "6.7.0",
+    "@google-cloud/firestore": "7.3.1",
     "@google-cloud/pubsub": "^4.3.2",
     "luxon": "^3.4.4",
     "node-emoji": "^1.11.0",

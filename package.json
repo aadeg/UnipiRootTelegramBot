@@ -21,7 +21,7 @@
   "devDependencies": {
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "semantic-release": "^21.1.0",
+    "semantic-release": "^23.0.5",
     "telegram-test-api": "^2.5.0"
   }
 }

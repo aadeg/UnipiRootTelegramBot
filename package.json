@@ -19,7 +19,7 @@
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
-    "mocha": "^10.4.0",
+    "mocha": "^10.6.0",
     "nyc": "^15.1.0",
     "semantic-release": "^21.1.0",
     "telegram-test-api": "^2.5.0"

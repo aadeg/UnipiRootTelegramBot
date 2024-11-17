@@ -3,7 +3,7 @@ const assert = require('assert');
 const Bot = require('../src/bot');
 const messages = require('../src/messages');
 
-function sleep (ms) {
+function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
@@ -12,23 +12,23 @@ describe('Telegram bot test', () => {
   const token = "test_token";
 
   const testsData = [
-    {command: "/start", expectedMessage: messages.start},
-    {command: "/faq", expectedMessage: messages.faq},
-    {command: "/list", expectedMessage: messages.list},
-    {command: "/informatica", expectedMessage: messages.informatica},
-    {command: "/aide", expectedMessage: messages.aide},
-    {command: "/computer_eng", expectedMessage: messages.computerEngineering},
+    { command: "/start", expectedMessage: messages.start },
+    { command: "/faq", expectedMessage: messages.faq },
+    { command: "/list", expectedMessage: messages.list },
+    { command: "/informatica", expectedMessage: messages.informatica },
+    { command: "/aide", expectedMessage: messages.aide },
+    { command: "/computer_eng", expectedMessage: messages.computerEngineering },
   ];
 
   let server;
   let client;
   let botInstance;
-  
+
   beforeEach(async () => {
     server = new TelegramServer(serverConfig);
     await server.start();
     client = server.getClient(token, { timeout: 5000 });
-    botInstance = new Bot(token, { telegram: { apiRoot: server.ApiURL } });
+    botInstance = new Bot(token, { telegram: { apiRoot: server.config.apiURL } });
     botInstance.startPolling();
   });
 
@@ -51,8 +51,8 @@ describe('Telegram bot test', () => {
     assert.strictEqual(message.text, expectedMessage);
     assert.strictEqual(message.parse_mode, "HTML");
   }
-  
-  testsData.forEach(({command, expectedMessage}) => {
+
+  testsData.forEach(({ command, expectedMessage }) => {
     it(`${command} command message`, async () => {
       await testCommand(command, expectedMessage);
     });
